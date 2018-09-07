@@ -84,6 +84,7 @@ def get_shobj_deps(path):
     for line in output.splitlines():
         m = pat.match(line)
         if not m:
+            continue
             raise ToolError('ldd', "Unexpected line in ldd output: " + line)
         libname  = m.group(1)
         libpath  = m.group(2)
